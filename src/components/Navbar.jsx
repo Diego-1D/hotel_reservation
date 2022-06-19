@@ -1,55 +1,60 @@
 import IconButton from '@mui/material/IconButton';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import { Badge, Box, Container, Toolbar, Typography } from '@mui/material';
-
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import {
+    Box,
+    Button,
+    Container,
+    Toolbar,
+    Typography
+} from '@mui/material';
 
 const Navbar = () => {
 
+    const button = ['Anuncie sua propriedade', 'Cadastre-se', 'Login']
+
     return (
-        <Box sx={{ bgcolor: '#1976d2' }}>
+        <Box sx={{ bgcolor: 'blue' }}>
             <Container>
                 <Toolbar >
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href=""
+                    <Typography variant="h6" noWrap href=""
                         sx={{
-                            flexGrow: 1,
                             fontWeight: "bold",
                             color: 'white',
-                            textDecoration: 'none',
-                        }}
-                    >
+                        }} >
                         Booking.com
                     </Typography>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Box sx={{ color: 'white', display: { xs: 'none', md: 'flex' } }}>
-                        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                            <Badge badgeContent={4} color="error">
-                                <MailIcon />
-                            </Badge>
-                        </IconButton>
-                        <IconButton
-                            size="large"
-                            aria-label="show 17 new notifications"
-                            color="inherit"
-                        >
-                            <Badge badgeContent={17} color="error">
-                                <NotificationsIcon />
-                            </Badge>
-                        </IconButton>
-                        <IconButton
-                            size="large"
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-haspopup="true"
-                            color="inherit"
-                        >
-                            <AccountCircle />
-                        </IconButton>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: '10px' }}>
+                        <Box>
+                            <IconButton>
+                                <Typography sx={{ fontWeight: "bold", color: 'white', }}>BRL</Typography>
+                            </IconButton>
+                            <IconButton>
+                                <img style={{
+                                    width: '20px',
+                                    borderRadius: '50%'
+                                }}
+                                    src='https://t-cf.bstatic.com/static/img/flags/new/48-squared/br/0cf5e55d996fdcf96a2d31733addf5c10bad1f74.png' />
+                            </IconButton>
+                            <IconButton sx={{ fontWeight: "bold", color: 'white', }}>
+                                <HelpOutlineOutlinedIcon />
+                            </IconButton>
+                        </Box>
+                        {button.map((title, id) => (
+                            <Button
+                                key={id}
+                                sx={{
+                                    height: '30px',
+                                    bgcolor: `${id === 0 ? 'blue' : 'white'}`,
+                                    color: `${id === 0 ? 'white' : 'blue'}`,
+                                    border: '1px solid white',
+                                    fontSize: '12px',
+                                    fontWeight: '700',
+                                    textTransform: 'none'
+                                }}>
+                                {title}
+                            </Button>
+                        ))}
                     </Box>
                 </Toolbar>
             </Container>
