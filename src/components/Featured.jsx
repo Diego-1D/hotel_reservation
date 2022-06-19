@@ -30,7 +30,7 @@ const Featured = () => {
   return (
     <Container sx={{ py: 6 }}>
       <Typography variant="h5" sx={{ py: 2 }}>Inspire-se para sua próxima viagem</Typography>
-      <Grid container spacing={4}>
+      <Grid container spacing={2}>
         {cards.map((item, key) => (
           <Grid item key={key} xs={12} sm={6} md={4}>
             <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
@@ -41,10 +41,19 @@ const Featured = () => {
                 alt={item.name}
               />
               <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  sx={{
+                    fontSize: '18px',
+                    fontWeight: 'bold'
+                  }}>
                   {item.name}
                 </Typography>
-                <Typography>
+                <Typography sx={{
+                  fontSize: '16px',
+                  color: '#6b6a6a'
+                }}>
                   {item.countProperty} Imóveis
                 </Typography>
               </CardContent>
